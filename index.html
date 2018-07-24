@@ -70,6 +70,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hexo-create" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/24/hexo-create/" class="article-date">
+  <time datetime="2018-07-24T07:11:45.656Z" itemprop="datePublished">2018-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/24/hexo-create/">hexo搭建blog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="pingm"><a href="#pingm" class="headerlink" title="pingm"></a>pingm</h2><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>安装以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.[git]</span><br><span class="line">1.[node]</span><br><span class="line">1.[个人github配置]</span><br></pre></td></tr></table></figure>
+<h3 id="安装后开始hexo的搭建"><a href="#安装后开始hexo的搭建" class="headerlink" title="安装后开始hexo的搭建"></a>安装后开始hexo的搭建</h3><p>网站<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo.io</a></p>
+<p>安装hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.在vscode中本地创建一个文件夹blog文件夹，<span class="built_in">cd</span>进入该目录，里面必须是空的!</span><br><span class="line">2.在vscode中打开终端（命令行）,输入<span class="string">"npm install -g hexo 或者 yarn add hexo -g"</span></span><br><span class="line">3.安装完成以后输入<span class="string">"hexo -v"</span>会显示hexo的相关信息</span><br><span class="line">4.此时hexo应已安装完成，在该目录下执行<span class="string">"hexo init"</span>进行hexo初始化以及安装依赖，就会有下列文件产生。</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/19/164ae5a129208749?w=474&amp;h=177&amp;f=png&amp;s=5759" alt="hexo文件列表"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">node_modules: 是依赖包</span><br><span class="line">public: 存放的是生成的页面</span><br><span class="line">scaffolds: 命令生成文章等的模板</span><br><span class="line"><span class="built_in">source</span>: 用命令创建的各种文章</span><br><span class="line">themes: 主题</span><br><span class="line">_config.yml: 整个博客的配置</span><br><span class="line">db.json: <span class="built_in">source</span>解析所得到的</span><br><span class="line">package.json: 项目所需模块项目的配置信息</span><br></pre></td></tr></table></figure>
+<h3 id="github创建一个hexo的repo"><a href="#github创建一个hexo的repo" class="headerlink" title="github创建一个hexo的repo"></a>github创建一个hexo的repo</h3><p>repo的仓库名必须是yourname.github.io这个格式，其中yourname是github个人账号名,创建好以后，打开blog文件夹下的_config.yml配置文件，找到以下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/YourgithubName/YourgithubName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>cd进入blog目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean //清除缓存</span><br><span class="line">hexo generate // 生成</span><br><span class="line">hexo server //运行server -p 6210</span><br></pre></td></tr></table></figure>
+<p>打开浏览器输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 就能看到初始blog了</p>
+<h3 id="上传到自己的github"><a href="#上传到自己的github" class="headerlink" title="上传到自己的github"></a>上传到自己的github</h3><p>在blog目录下安装：npm install hexo-deployer-git –save</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br><span class="line">在首次deploy的时候，会要求输入github的username及passward</span><br></pre></td></tr></table></figure>
+<p>最后在浏览器中输入<a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a> 就可以看到自己的博客了</p>
+<h3 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h3><p>hexo支持markdown的语法，因此很方面，可以通过hexo new ‘文章名’或者hexo new page ‘文件夹名’来创建文章md文件，也可以手动在文件夹下面添加。</p>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/24/hexo-create/" data-id="cjjzd4dow0001bgqs05w4ah8r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/24/hello-world/" class="article-date">
@@ -105,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/24/hello-world/" data-id="cjjzcu5a10000w0qsjpfxpeg5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/24/hello-world/" data-id="cjjzd4don0000bgqsebl92ec7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,6 +197,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/07/24/hexo-create/">hexo搭建blog</a>
+          </li>
         
           <li>
             <a href="/2018/07/24/hello-world/">Hello World</a>
